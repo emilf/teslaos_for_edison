@@ -4,12 +4,12 @@
 ;
 [BITS 32]                       ; All instructions should be 32-bit.
 
-[EXTERN main]                   ; This is the entry point of our C code
+[EXTERN __main]                   ; This is the entry point of our C code
 [GLOBAL start]
 start:
     cli                         ; Disable interrupts.
 [BITS 64]
-    call main
+    call __main
     jmp $                       ; Enter an infinite loop, to stop the processor
                                 ; executing whatever rubbish is in the memory
                                 ; after our kernel!
